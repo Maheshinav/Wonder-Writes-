@@ -28,6 +28,16 @@ p {
 	text-align: center;
 	color: white;
 
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.1);
+  }
+
 	&__text-container {
 		display: flex;
 		flex-direction: column;
@@ -37,18 +47,30 @@ p {
 		color: white;
 		margin-bottom: 18rem;
 
+ &__subtitle-container {
+    white-space: nowrap;
+    overflow: hidden;
+  
+    width: 0;
+  }
 		&__title {
 			@include fontHeadings;
 			font-size: 2rem;
 			color: #494990;
 			font-weight: 600;
-      margin-top: 6rem;
+			margin-top: 4rem;
+			margin-bottom: 1rem;
 		}
 
 		&__subtitle {
 			@include fontBody;
 			font-size: 1rem;
-      margin-top: -1.5rem;
+			margin-top: -1rem;
+      display: inline-block;
 		}
+     &__subtitle--letter {
+      display: inline-block;
+      transition: color 0.3s ease;
+      }
 	}
 }

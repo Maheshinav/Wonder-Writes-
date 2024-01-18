@@ -18,6 +18,15 @@ p {
   text-align: center;
   color: white;
 }
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.1);
+}
 .hero__text-container {
   display: flex;
   flex-direction: column;
@@ -27,17 +36,28 @@ p {
   color: white;
   margin-bottom: 18rem;
 }
+.hero__text-container__subtitle-container {
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+}
 .hero__text-container__title {
   font-family: "Literata", serif, "Georgia", "Times New Roman", Times, serif;
   font-weight: 400;
   font-size: 2rem;
   color: #494990;
   font-weight: 600;
-  margin-top: 6rem;
+  margin-top: 4rem;
+  margin-bottom: 1rem;
 }
 .hero__text-container__subtitle {
   font-family: "Merriweather", serif;
   font-weight: 400;
   font-size: 1rem;
-  margin-top: -1.5rem;
+  margin-top: -1rem;
+  display: inline-block;
+}
+.hero__text-container__subtitle--letter {
+  display: inline-block;
+  transition: color 0.3s ease;
 }/*# sourceMappingURL=hero.css.map */
