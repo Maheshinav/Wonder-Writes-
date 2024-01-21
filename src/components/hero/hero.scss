@@ -16,7 +16,7 @@ p {
 }
 
 .hero {
-	background-image: url("https://res.cloudinary.com/dchzjr4bz/image/upload/v1705541692/image_123650291_vzm6yi.jpg");
+	background-image: url("https://res.cloudinary.com/dchzjr4bz/image/upload/v1705653497/image_123650291_1_uvecza.jpg");
 	background-size: cover;
 	background-position: center;
 	height: 500px;
@@ -28,15 +28,16 @@ p {
 	text-align: center;
 	color: white;
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.1);
-  }
+	&::before {
+		content: "";
+		position: absolute;
+		top: 6rem;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: rgba(0, 0, 0, 0.1);
+		height:100vh;
+	}
 
 	&__text-container {
 		display: flex;
@@ -47,12 +48,12 @@ p {
 		color: white;
 		margin-bottom: 18rem;
 
- &__subtitle-container {
-    white-space: nowrap;
-    overflow: hidden;
-  
-    width: 0;
-  }
+		&__subtitle-container {
+			white-space: nowrap;
+			overflow: hidden;
+
+			width: 0;
+		}
 		&__title {
 			@include fontHeadings;
 			font-size: 2rem;
@@ -66,11 +67,11 @@ p {
 			@include fontBody;
 			font-size: 1rem;
 			margin-top: -1rem;
-      display: inline-block;
+			display: inline-block;
 		}
-     &__subtitle--letter {
-      display: inline-block;
-      transition: color 0.3s ease;
-      }
+		&__subtitle--letter {
+			display: inline-block;
+			transition: color 0.3s ease;
+		}
 	}
 }

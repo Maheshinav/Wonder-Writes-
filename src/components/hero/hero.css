@@ -6,7 +6,7 @@ p {
 }
 
 .hero {
-  background-image: url("https://res.cloudinary.com/dchzjr4bz/image/upload/v1705541692/image_123650291_vzm6yi.jpg");
+  background-image: url("https://res.cloudinary.com/dchzjr4bz/image/upload/v1705653497/image_123650291_1_uvecza.jpg");
   background-size: cover;
   background-position: center;
   height: 500px;
@@ -21,11 +21,12 @@ p {
 .hero::before {
   content: "";
   position: absolute;
-  top: 0;
+  top: 6rem;
   left: 0;
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.1);
+  height: 100vh;
 }
 .hero__text-container {
   display: flex;
