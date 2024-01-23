@@ -1,12 +1,9 @@
 @import "../../styles/variables.css";
 
 .navbar {
-padding-top: 1rem;
-padding-bottom: 1rem;
+	padding-top: 2rem;
 
-&__icon{
-
-margin-left: 1rem;
-}
-	
+	&__icon {
+		margin-left: 1rem;
+	}
 }
