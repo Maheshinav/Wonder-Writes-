@@ -13,6 +13,14 @@ const Login = () => {
 		console.log("Login with: ", username, password);
 	};
 
+	const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUsername(e.target.value);
+};
+
+const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+};
+
 	return (
 		<div className="login">
 			<Container component="main" maxWidth="xs" className="login__card">
@@ -60,7 +68,7 @@ const Login = () => {
 							autoComplete="username"
 							autoFocus
 							value={username}
-							onChange={(e) => setUsername(e.target.value)}
+							onChange={handleUsernameChange}
 						/>
 						<TextField
 							sx={{
@@ -91,7 +99,7 @@ const Login = () => {
 							id="password"
 							autoComplete="current-password"
 							value={password}
-							onChange={(e) => setPassword(e.target.value)}
+							 onChange={handlePasswordChange}
 						/>
 						<Button
 							className="login__signin-button"

@@ -12,15 +12,15 @@
 
 .login {
 	display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh; 
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
 	&__card {
 		border: 2px solid $yellow;
 		margin-top: 4vh;
-    border-radius: 10px;
-     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-     height: 40rem;
+		border-radius: 10px;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		height: 40rem;
 	}
 	&__image {
 		width: 300px;
@@ -64,16 +64,14 @@
 		text-align: center;
 	}
 
-  & .MuiBox-root{
-  padding-bottom: 1rem;
-  }
+	& .MuiBox-root {
+		padding-bottom: 1rem;
+	}
 
-	&__password-reset-text{
-	@include fontBody;
-	font-size: 1rem;
-	text-align: center;
-	color:$dark-blue;
-	
+	&__password-reset-text {
+		@include fontBody;
+		font-size: 1rem;
+		text-align: center;
+		color: $dark-blue;
 	}
 }
-

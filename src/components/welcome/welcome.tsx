@@ -9,7 +9,10 @@ const Welcome: React.FC = () => {
 	const handleLoginClick = () => {
 		navigate("/login");
 	};
+const handleSignupClick=()=>{
+navigate("/signup")
 
+}
 	return (
 		<div className="welcome">
 			<Container component="main" maxWidth="xs" className="welcome__card">
@@ -39,6 +42,7 @@ const Welcome: React.FC = () => {
 						Login
 					</Button>
 					<Button
+          onClick={handleSignupClick}  
 						className="welcome__button"
 						variant="contained"
 						fullWidth
