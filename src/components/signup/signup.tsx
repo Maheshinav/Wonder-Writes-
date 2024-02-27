@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { useNavigate } from "react-router-dom";
 import {
 	Button,
 	TextField,
@@ -10,7 +11,10 @@ import {
 	InputLabel,
 	FormControl,
 } from "@mui/material";
+import SuccessMessage from "../successmessage/successmessage";
 import "./signup.css";
+import axios from "axios";
+import {Link} from 'react-router-dom';
 
 interface ICountry {
 	name: string;
@@ -22,12 +26,13 @@ const Signup: React.FC = () => {
 	const [password, setPassword] = useState<string>("");
 	const [confirmPassword, setConfirmPassword] = useState<string>("");
 	const [passwordError, setPasswordError] = useState<boolean>(false);
-	const [birthYear] = useState<string>("");
 	const [birthMonth, setBirthMonth] = useState<string>("");
 	const [birthDate, setBirthDate] = useState<Date | null>(null);
 	const [country, setCountry] = useState<string>("");
 	const [email, setEmail] = useState<string>("");
 	const [countries, setCountries] = useState<ICountry[]>([]);
+	const navigate = useNavigate();
+	const [showSuccess, setShowSuccess] = useState(false);
 
 	useEffect(() => {
 		fetch("https://restcountries.com/v3.1/all")
@@ -48,7 +53,7 @@ const Signup: React.FC = () => {
 		return hasNumbers && hasLetters && password.length >= 8;
 	};
 
-	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 
 		if (password !== confirmPassword || !isPasswordValid(password)) {
@@ -56,14 +61,31 @@ const Signup: React.FC = () => {
 			return;
 		}
 
-		console.log("Signup with: ", {
+		const user = {
 			username,
 			password,
-			birthYear,
-			birthMonth,
+			birthDate: birthDate ? birthDate.toISOString() : "",
 			country,
 			email,
-		});
+		};
+
+		try {
+			const response = await axios.post(
+				"http://localhost:3000/api/signup",
+				user
+			);
+
+			if (response.status === 201) {
+				setShowSuccess(true);
+				setTimeout(() => {
+					navigate("/login");
+				}, 3000);
+			} else {
+				console.error("Error registering user:", response.data.error);
+			}
+		} catch (error) {
+			console.error("Error registering user:", error);
+		}
 	};
 
 	return (
@@ -134,26 +156,27 @@ const Signup: React.FC = () => {
 									: ""
 							}
 						/>
-						
-						<FormControl
-  fullWidth
-  margin="normal"
-  className="signup__textfields"
->
-  <DatePicker
-    views={["year", "month", "day"]}
-    label="Birthday*"
-    value={birthDate}
-    onChange={(newValue: Date | null) => {
-      setBirthDate(newValue);
-      if (newValue) {
-        const formattedDate = `${newValue.getFullYear()}-${newValue.getMonth() + 1}-${newValue.getDate()}`;
-        setBirthMonth(formattedDate); 
-      }
-    }}
-  />
-</FormControl>
 
+						<FormControl
+							fullWidth
+							margin="normal"
+							className="signup__textfields"
+						>
+							<DatePicker
+								views={["year", "month", "day"]}
+								label="Birthday*"
+								value={birthDate}
+								onChange={(newValue: Date | null) => {
+									setBirthDate(newValue);
+									if (newValue) {
+										const formattedDate = `${newValue.getFullYear()}-${
+											newValue.getMonth() + 1
+										}-${newValue.getDate()}`;
+										setBirthMonth(formattedDate);
+									}
+								}}
+							/>
+						</FormControl>
 
 						<FormControl
 							fullWidth
@@ -201,10 +224,15 @@ const Signup: React.FC = () => {
 						</Button>
 					</form>
 					<p className="signup__password-reset-text">
-						Already have an account? Login
+						Already have an account?<Link to="/login" className="signup__password-reset-text" > Login</Link>
 					</p>
 				</Box>
 			</Container>
+			<SuccessMessage
+				open={showSuccess}
+				message="Welcome to the Family of WonderWriters"
+				onClose={() => setShowSuccess(false)}
+			/>
 		</div>
 	);
 };

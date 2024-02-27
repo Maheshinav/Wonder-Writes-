@@ -55,4 +55,11 @@
   font-size: 1rem;
   text-align: center;
   color: #0F1EAF;
+}
+.login__register-text-container {
+  display: flex;
+  flex-direction: column;
+  height: 3rem;
+  justify-content: space-between;
+  margin-top: 1rem;
 }/*# sourceMappingURL=login.css.map */

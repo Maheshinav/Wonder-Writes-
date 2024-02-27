@@ -11,10 +11,12 @@ import Nav from "./components/nav/nav";
 import WelcomePage from "./pages/Welcomepage";
 import LoginPage from "./pages/Loginpage";
 import SignupPage from "./pages/Signuppage";
+import { UserProvider } from './contexts/UserContext';
 
 const App = () => {
 	return (
 	<LocalizationProvider dateAdapter={AdapterDateFns}>
+	 <UserProvider> 
 		<Router>
 			<ConditionalNav />
 			<Routes>
@@ -24,6 +26,7 @@ const App = () => {
 				<Route path ="/signup" element={<SignupPage/>}/>
 			</Routes>
 		</Router>
+		  </UserProvider>
 		</LocalizationProvider>
 	);
 };

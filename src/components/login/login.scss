@@ -74,4 +74,11 @@
 		text-align: center;
 		color: $dark-blue;
 	}
+	&__register-text-container {
+		display: flex;
+		flex-direction: column;
+		height: 3rem;
+		justify-content: space-between;
+		margin-top: 1rem;
+	}
 }

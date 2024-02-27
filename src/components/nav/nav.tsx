@@ -33,14 +33,16 @@ const Nav: React.FC = () => {
 	return (
 		<AppBar
 			position="static"
-			sx={{ backgroundColor: "#FDBD29" }}
+			sx={{ backgroundColor: "#ffff",paddingBottom:"24px" }}
 			className="navbar"
+			
 		>
 			<Toolbar
 				sx={{
 					display: "flex",
 					justifyContent: "space-between",
 					alignItems: "center",
+					
 				}}
 			>
 				<IconButton
@@ -54,9 +56,9 @@ const Nav: React.FC = () => {
 
 				<Box sx={{ flexGrow: 20, display: "flex", justifyContent: "center" }}>
 					<img
-						src="https://res.cloudinary.com/dchzjr4bz/image/upload/v1706085655/LOGO_wtrvqq.png"
+						src="https://res.cloudinary.com/dchzjr4bz/image/upload/v1708045577/LOGO_2_ckezfl.png"
 						alt="Logo"
-						style={{ maxHeight: 30 }}
+						style={{ maxHeight: 80 }}
 						onClick={handleHomeClick}
 					/>
 				</Box>

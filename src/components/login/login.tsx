@@ -1,25 +1,42 @@
+import jwtDecode from 'jwt-decode';
 import React, { useState } from "react";
 import { Button, TextField, Container, Box } from "@mui/material";
 import "../../styles/variables.css";
 import "./login.css";
+import { Link,useNavigate} from "react-router-dom";
+import {useUser} from "../../contexts/UserContext";
+
+interface JWTPayload {
+  username: string;}
 
 const Login = () => {
 	const [username, setUsername] = useState<string>("");
 	const [password, setPassword] = useState<string>("");
+const { setUser } = useUser();
+  const navigate = useNavigate();
+
 
 	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 
 		console.log("Login with: ", username, password);
+
+		const loginSuccess = (username: string) => {
+      const user = { username };
+      setUser(user);
+			navigate("/");
+		
+  
 	};
+	loginSuccess(username);};
 
 	const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setUsername(e.target.value);
-};
+		setUsername(e.target.value);
+	};
 
-const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(e.target.value);
-};
+	const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setPassword(e.target.value);
+	};
 
 	return (
 		<div className="login">
@@ -99,7 +116,7 @@ const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 							id="password"
 							autoComplete="current-password"
 							value={password}
-							 onChange={handlePasswordChange}
+							onChange={handlePasswordChange}
 						/>
 						<Button
 							className="login__signin-button"
@@ -110,7 +127,14 @@ const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 						>
 							Login
 						</Button>
-						<p className="login__password-reset-text"> Forgot Password?</p>
+						<div className="login__register-text-container">
+							{" "}
+							<p className="login__password-reset-text"> Forgot Password?</p>
+							<p className="login__password-reset-text">
+								{" "}
+								Not a Member Yet? <Link to="/signup"className="login__password-reset-text" >Register</Link>
+							</p>
+						</div>
 					</Box>
 				</Box>
 			</Container>
