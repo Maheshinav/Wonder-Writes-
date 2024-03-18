@@ -54,9 +54,9 @@ const Nav: React.FC = () => {
 					<MenuIcon />
 				</IconButton>
 
-				<Box sx={{ flexGrow: 20, display: "flex", justifyContent: "center" }}>
+				<Box sx={{ flexGrow: 20, display: "flex", justifyContent: "center", width: '26.875rem' }}>
 					<img
-						src="https://res.cloudinary.com/dchzjr4bz/image/upload/v1708045577/LOGO_2_ckezfl.png"
+						src="https://res.cloudinary.com/dchzjr4bz/image/upload/v1710545748/Logo_A_bidb54.jpg"
 						alt="Logo"
 						style={{ maxHeight: 80 }}
 						onClick={handleHomeClick}

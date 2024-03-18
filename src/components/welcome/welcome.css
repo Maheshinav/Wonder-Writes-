@@ -7,11 +7,14 @@
   min-height: 100vh;
 }
 .welcome__circle-placeholder {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   background-color: #cccccc;
   margin-bottom: 20px;
+  background-image: url("https://res.cloudinary.com/dchzjr4bz/image/upload/v1710545748/Logo_A_bidb54.jpg");
+  background-size: cover;
+  background-position: center;
 }
 .welcome__heading {
   font-family: "Literata", serif, "Georgia", "Times New Roman", Times, serif;
